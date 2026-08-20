@@ -1,5 +1,8 @@
 const TOKEN_KEY = 'scr_token';
 
+// Base URL for the deployed backend (Cloudflare tunnel). Override with VITE_API_BASE if needed.
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://phillips-factors-alan-incidence.trycloudflare.com';
+
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);
 }
@@ -17,7 +20,7 @@ async function request(path, { method = 'GET', body, auth = false } = {}) {
     const t = getToken();
     if (t) headers.Authorization = `Bearer ${t}`;
   }
-  const res = await fetch(path, {
+  const res = await fetch(`${API_BASE}${path}`, {
     method,
     headers,
     body: body ? JSON.stringify(body) : undefined,
