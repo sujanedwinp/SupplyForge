@@ -41,7 +41,7 @@ export default function SavedRoutes() {
 
   return (
     <div>
-      <div className="page-head">
+      <div className="page-head" style={{ textAlign: 'center', paddingTop: '40px' }}>
         <h1>My routes</h1>
         <p className="muted">Saved routes are re-analyzed automatically every 24h.</p>
       </div>

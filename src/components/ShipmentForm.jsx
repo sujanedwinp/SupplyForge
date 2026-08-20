@@ -23,25 +23,24 @@ export default function ShipmentForm({ onSubmit, loading }) {
 
   return (
     <div className="card form">
-      <h2 style={{ margin: '0 0 16px 0' }}>Check a Route</h2>
       <form className="horizontal-form" onSubmit={submit}>
         <label>
-          <span style={{ display: 'none' }}>Origin port</span>
+          <span>Origin</span>
           <input value={form.origin} onChange={update('origin')} placeholder="Origin (e.g. Shanghai)" required />
         </label>
         <label>
-          <span style={{ display: 'none' }}>Destination port</span>
+          <span>Destination</span>
           <input value={form.dest} onChange={update('dest')} placeholder="Destination (e.g. Rotterdam)" required />
         </label>
         <label>
-          <span style={{ display: 'none' }}>Cargo</span>
+          <span>Cargo</span>
           <input value={form.cargo} onChange={update('cargo')} placeholder="Cargo (e.g. Electronics)" required />
         </label>
         <label>
-          <span style={{ display: 'none' }}>Budget (USD)</span>
+          <span>Budget (USD)</span>
           <input type="number" value={form.budget ?? ''} onChange={update('budget')} placeholder="Budget (USD)" />
         </label>
-        <button className="primary" type="submit" disabled={loading} style={{ padding: '0 24px', whiteSpace: 'nowrap', borderRadius: '0 4px 4px 0' }}>
+        <button className="primary" type="submit" disabled={loading} style={{ padding: '10px 24px', whiteSpace: 'nowrap', borderRadius: '4px' }}>
           {loading ? 'Analyzing…' : 'Check a route →'}
         </button>
       </form>

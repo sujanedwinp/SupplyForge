@@ -31,7 +31,7 @@ export default function Layout() {
               <button className="link" onClick={doLogout}>Log out</button>
             </>
           ) : (
-            <Link to="/login" className="secondary sm">Log in</Link>
+            <Link to="/login" className="btn-login">Log in</Link>
           )}
         </div>
       </header>

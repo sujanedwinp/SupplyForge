@@ -32,29 +32,29 @@ export default function Login() {
 
   return (
     <div className="auth-wrap">
-      <div className="card form auth-card">
-        <h2>{mode === 'signup' ? 'Create account' : 'Log in'}</h2>
-        <form onSubmit={submit}>
-          <label>
-            Email
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" required />
-          </label>
-          <label>
-            Password
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="at least 6 characters" required />
-          </label>
-          {error && <div className="auth-error">⚠️ {error}</div>}
-          <button className="primary" type="submit" disabled={busy}>
-            {busy ? '…' : mode === 'signup' ? 'Sign up' : 'Log in'}
-          </button>
-        </form>
-        <p className="auth-toggle">
-          {mode === 'signup' ? 'Already have an account?' : 'New here?'}{' '}
-          <button type="button" className="link" onClick={() => { setMode(mode === 'signup' ? 'login' : 'signup'); setError(null); }}>
-            {mode === 'signup' ? 'Log in' : 'Create one'}
-          </button>
-        </p>
+      <div className="page-head" style={{ textAlign: 'center', paddingTop: '40px' }}>
+        <h1>{mode === 'signup' ? 'Create account' : 'Login'}</h1>
       </div>
+      <form className="form" onSubmit={submit}>
+        <label>
+          <span>Email</span>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="at least 6 characters" required />
+        </label>
+        {error && <div className="auth-error" style={{ color: 'var(--red-signal)', fontSize: '13px' }}>⚠️ {error}</div>}
+        <button className="primary" type="submit" disabled={busy} style={{ width: '100%', marginTop: '8px', padding: '10px 16px' }}>
+          {busy ? '…' : mode === 'signup' ? 'Sign up' : 'Log in'}
+        </button>
+      </form>
+      <p className="auth-toggle">
+        {mode === 'signup' ? 'Already have an account?' : 'New here?'}{' '}
+        <button type="button" className="link" onClick={() => { setMode(mode === 'signup' ? 'login' : 'signup'); setError(null); }}>
+          {mode === 'signup' ? 'Log in' : 'Create one'}
+        </button>
+      </p>
     </div>
   );
 }

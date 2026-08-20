@@ -58,7 +58,7 @@ export default function Home() {
       <div style={{ opacity: scrolled ? 1 : 0, transition: 'opacity 0.8s ease-in, transform 0.8s ease-out', transform: scrolled ? 'translateY(0)' : 'translateY(40px)', pointerEvents: scrolled ? 'auto' : 'none' }}>
         <section className="feature-grid">
           {FEATURES.map((f, i) => (
-            <div key={f.title} className={`feature-card ${i === 0 || i === 3 ? 'ivory' : ''}`}>
+            <div key={f.title} className="feature-card">
               <h3>{f.title}</h3>
               <p>{f.text}</p>
             </div>

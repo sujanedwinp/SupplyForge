@@ -5,7 +5,7 @@ export default function Analyze() {
   const { user } = useAuth();
   return (
     <div>
-      <div className="page-head">
+      <div className="page-head" style={{ textAlign: 'center', paddingTop: '40px' }}>
         <h1>Check a route</h1>
         <p className="muted">Analyze any shipment worldwide. Log in to save it for daily tracking.</p>
       </div>
