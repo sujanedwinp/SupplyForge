@@ -56,15 +56,24 @@ export default function SavedRoutes() {
 
       {routes && routes.length > 0 && (
         <div className="routes">
+          <div className="saved-route label-caps" style={{ borderBottom: '1px solid var(--surface-2)', paddingBottom: '8px', color: 'var(--text-muted)' }}>
+            <div>Route Name</div>
+            <div>Path & Cargo</div>
+            <div>Status</div>
+            <div style={{ textAlign: 'right' }}>Actions</div>
+          </div>
           {routes.map((r) => (
             <div key={r.id} className="route saved-route">
               <div className="route-top">
                 <button className="link route-name" onClick={() => navigate(`/routes/${r.id}`)}>{r.name}</button>
-                {riskBadge(r.current_risk, r.current_score)}
+                <div className="muted small">last refreshed {r.last_refreshed_at ? new Date(r.last_refreshed_at).toLocaleDateString() : 'never'}</div>
               </div>
-              <div className="route-path">{r.origin} → {r.dest}</div>
-              <div className="muted small">
-                {r.cargo} · last refreshed {r.last_refreshed_at ? new Date(r.last_refreshed_at).toLocaleDateString() : 'never'}
+              <div className="route-path">
+                {r.origin} → {r.dest}
+                <div className="muted small">{r.cargo}</div>
+              </div>
+              <div>
+                {riskBadge(r.current_risk, r.current_score)}
               </div>
               <div className="saved-actions">
                 <button className="secondary sm" onClick={() => navigate(`/routes/${r.id}`)}>Open</button>

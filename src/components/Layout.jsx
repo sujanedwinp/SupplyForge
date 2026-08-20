@@ -14,7 +14,7 @@ export default function Layout() {
   return (
     <div className="app">
       <header className="topbar">
-        <Link to="/" className="brand">🚢 <span>RouteRisk</span></Link>
+        <Link to="/" className="brand">SupplyForge</Link>
 
         <nav className="mainnav">
           <NavLink to="/" end className={({ isActive }) => (isActive ? 'navlink active' : 'navlink')}>Home</NavLink>

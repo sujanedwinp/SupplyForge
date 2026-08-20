@@ -41,12 +41,11 @@ export default function CheckRoute({ user, onSaved }) {
   };
 
   return (
-    <div className="layout">
-      <div className="left">
-        <ShipmentForm onSubmit={run} loading={loading} />
-      </div>
-      <div className="right">
-        {loading && <div className="card muted">Running risk &amp; route agents…</div>}
+    <div className="layout" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <ShipmentForm onSubmit={run} loading={loading} />
+
+      <div className="results-container" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        {loading && <div className="card muted" style={{ textAlign: 'center' }}>Processing Multi-Agent Data Streams…</div>}
         {error && <div className="card error">⚠️ {error}</div>}
         {result && (
           <>
@@ -65,7 +64,7 @@ export default function CheckRoute({ user, onSaved }) {
           </>
         )}
         {!loading && !error && !result && (
-          <div className="card muted">Enter a shipment and hit “Analyze risk”. Works for any port worldwide.</div>
+          <div className="card muted" style={{ textAlign: 'center' }}>Enter a shipment and hit “Check a route”. Works for any port worldwide.</div>
         )}
       </div>
     </div>
