@@ -1,7 +1,9 @@
 const TOKEN_KEY = 'scr_token';
 
-// Base URL for the deployed backend (Cloudflare tunnel). Override with VITE_API_BASE if needed.
-const API_BASE = 'http://localhost:8000' || 'https://phillips-factors-alan-incidence.trycloudflare.com';
+// Empty = same-origin relative calls ("/api/..."). The Express server serves this app AND the
+// API on :8000, so calls work through ANY front door (localhost or the trycloudflare tunnel URL)
+// with zero changes. Override with VITE_API_BASE only if you split frontend/backend onto different hosts.
+const API_BASE = import.meta.env.VITE_API_BASE || '';
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);
