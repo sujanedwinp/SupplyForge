@@ -1,7 +1,7 @@
 const TOKEN_KEY = 'scr_token';
 
 // Base URL for the deployed backend (Cloudflare tunnel). Override with VITE_API_BASE if needed.
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://phillips-factors-alan-incidence.trycloudflare.com';
+const API_BASE = 'http://localhost:8000' || 'https://phillips-factors-alan-incidence.trycloudflare.com';
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);
